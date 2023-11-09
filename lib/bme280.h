@@ -9,13 +9,16 @@ typedef struct BMEData {
     char *data;
     // b1, block data
     char *block_data;
+    // t_fine, part of temperature offset calculations,
+    // used in pressure and humidity functions
+    float t_fine;
 } BMEData;
 
 void bme280(const HWInfo *hw_info);
 
 float temperature(BMEData *bme_data);
 
-float pressure();
+float pressure(BMEData *bme_data);
 
 float humidity();
 
